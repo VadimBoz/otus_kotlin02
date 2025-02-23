@@ -14,12 +14,13 @@ package ru.otus.homework
 
 
 fun fizzbuzz(n: Int): Array<String> {
-    val result = Array(n) { "$it" }
+    val result  = Array<String>(n) { "$it" }
     for (i in 0 until n) {
-        when {
-            i == 0 || (i % 3 == 0 && i % 5 == 0) -> result[i] = "FizzBuzz"
-            i % 5 == 0 -> result[i] = "Buzz"
-            i % 3 == 0 -> result[i] = "Fizz"
+        result[i] = when {
+            i == 0 || (i % 3 == 0 && i % 5 == 0) -> "FizzBuzz"
+            i % 5 == 0 ->  "Buzz"
+            i % 3 == 0 ->  "Fizz"
+            else -> continue
         }
     }
     return result
